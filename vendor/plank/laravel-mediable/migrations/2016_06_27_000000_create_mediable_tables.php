@@ -38,7 +38,7 @@ return new class extends Migration {
                     $table->foreignIdFor(Media::class)->constrained('media')->cascadeOnDelete();
                     $table->morphs('mediable');
                     $table->string('tag', 191)->index(); // Limite a string para 191 caracteres
-                    $table->interger('order')->index()->unsigned();
+                    $table->integer('order')->index()->unsigned();
                     $table->primary(['media_id', 'mediable_type', 'mediable_id', 'tag']);
                     $table->index(['mediable_id', 'mediable_type']);
                 }
