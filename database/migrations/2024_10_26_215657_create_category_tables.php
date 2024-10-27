@@ -50,7 +50,9 @@ class CreateCategoryTables extends Migration
                 ->on($tableNames['categories'])
                 ->onDelete('cascade');
 
-            $table->nullableMorphs('category_item');
+                $table->string('category_item_type', 100)->index()->nullable(); // Reduzido para 100
+                $table->unsignedBigInteger('category_item_id')->index()->nullable();
+                
         });
     }
 
