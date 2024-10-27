@@ -30,11 +30,6 @@
         <link rel="stylesheet" href="{{ asset('assets/css/tolak.css') }}" />
 
         <!-- Styles -->
-        <script  src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-        crossorigin="anonymous"></script>
-
-       <script  src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/js/bootstrap-select.min.js"></script>
-
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="custom-cursor">
@@ -2223,7 +2218,7 @@
         </a>
 
 
-      
+        <script src="{{ asset('assets/vendors/jquery/jquery-3.7.0.min.js') }}"></script>
         <script src="{{ asset('assets/vendors/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
         <script src="{{ asset('assets/vendors/bootstrap-select/bootstrap-select.min.js') }}"></script>
         <script src="{{ asset('assets/vendors/jarallax/jarallax.min.js') }}"></script>
@@ -2248,10 +2243,10 @@
         <script src="{{ asset('assets/vendors/progress-bar/knob.js') }}"></script>
 
         <!-- chart js -->
-        <!-- <script src="{{ asset('assets/vendors/chart/chart.js') }}"></script>
-        <script src="{{ asset('assets/vendors/chart/custome-chart.js') }}"></script> -->
+        <script src="{{ asset('assets/vendors/chart/chart.js') }}"></script>
+        <script src="{{ asset('assets/vendors/chart/custome-chart.js') }}"></script>
 
         <!-- template js -->
-        <!-- <script src="{{ asset('assets/js/tolak.js') }}"></script> -->
+        <script src="{{ asset('assets/js/tolak.js') }}"></script>
     </body>
 </html>
