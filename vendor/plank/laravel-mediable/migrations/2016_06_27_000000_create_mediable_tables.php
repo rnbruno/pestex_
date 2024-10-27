@@ -37,7 +37,7 @@ return new class extends Migration {
                 function (Blueprint $table) {
                     $table->foreignIdFor(Media::class)->constrained('media')->cascadeOnDelete();
                     $table->morphs('mediable');
-                    $table->string('tag')->index();
+                    $table->string('tag', 191)->index(); // Limite a string para 191 caracteres
                     $table->unsignedInteger('order')->index();
                     $table->primary(['media_id', 'mediable_type', 'mediable_id', 'tag']);
                     $table->index(['mediable_id', 'mediable_type']);
