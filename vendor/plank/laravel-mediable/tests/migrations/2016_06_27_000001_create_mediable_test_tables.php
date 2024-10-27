@@ -27,9 +27,9 @@ return new class extends Migration {
 
         Schema::create('prefixed_mediables', function (Blueprint $table) {
             $table->integer('media_id')->unsigned();
-            $table->string('mediable_type');
+            $table->string('mediable_type', 191); // Reduzido para 191
             $table->integer('mediable_id')->unsigned();
-            $table->string('tag');
+            $table->string('tag', 191); // Reduzido para 191
             $table->integer('order')->unsigned();
 
             $table->primary(['media_id', 'mediable_type', 'mediable_id', 'tag']);
