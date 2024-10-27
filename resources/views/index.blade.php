@@ -1660,7 +1660,7 @@
                                     <p class="contact-one__content__text">
                                         Business tailored it design, management & support services <br>business agency elit, sed do eiusmod tempor.
                                     </p>
-                                    <form class="contact-one__form contact-form-validated form-one" action="inc/sendemail.php">
+                                    <form class="contact-one__form  form-one" action="inc/sendemail.php">
                                         <div class="form-one__group">
                                             <div class="form-one__control">
                                                 <input type="text" name="name" placeholder="Your Name">
