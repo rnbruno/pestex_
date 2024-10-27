@@ -17,8 +17,8 @@ class CreateCategoryTables extends Migration
 
         Schema::create($tableNames['category_types'], function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('description')->nullable();
+            $table->string('name',125);
+            $table->string('description',125)->nullable();
             $table->string('machine_name', 64)->unique();
             $table->boolean('is_flat')->default(0);
             $table->timestamps();
@@ -33,10 +33,10 @@ class CreateCategoryTables extends Migration
                 ->on($tableNames['category_types'])
                 ->onDelete('cascade');
 
-            $table->string('name');
-            $table->string('slug')->nullable();
+            $table->string('name',125);
+            $table->string('slug',125)->nullable();
             $table->unique(['category_type_id', 'slug']);
-            $table->string('description')->nullable();
+            $table->string('description',125)->nullable();
             $table->unsignedBigInteger('parent_id')->nullable();
             $table->integer('weight')->default(0);
             $table->boolean('enabled')->default(1);

@@ -17,8 +17,8 @@ class CreateMenuTables extends Migration
 
         Schema::create($tableNames['menus'], function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('description')->nullable();
+            $table->string('name',125);
+            $table->string('description',125)->nullable();
             $table->string('machine_name', 64)->unique();
             $table->timestamps();
         });
@@ -33,8 +33,8 @@ class CreateMenuTables extends Migration
                 ->onDelete('cascade');
 
             $table->string('name');
-            $table->string('uri')->nullable();
-            $table->string('description')->nullable();
+            $table->string('uri',125)->nullable();
+            $table->string('description',125)->nullable();
             $table->unsignedBigInteger('parent_id')->nullable();
             $table->integer('weight')->default(0);
             $table->boolean('enabled')->default(1);
