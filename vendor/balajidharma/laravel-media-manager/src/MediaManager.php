@@ -43,11 +43,10 @@ class MediaManager
     {
         $mediaType = $this->getMediaTypes()[$type] ?? [];
         $mediaDisk = $mediaType['disk'] ?? 'public';
-        // $mediaDirectory = $mediaType['directory'] ?? 'media';
-        $mediaDirectory = 'assets/images';  
+        $mediaDirectory = $mediaType['directory'] ?? 'media';
 
         $mediaModel = MediaUploader::fromSource($file)
-            // ->toDisk($mediaDisk)
+            ->toDisk($mediaDisk)
             ->toDirectory($mediaDirectory);
 
         if ($name) {

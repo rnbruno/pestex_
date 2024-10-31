@@ -5,7 +5,7 @@ return [
 
     'media_types' => [
         'default' => [
-            'disk' => 'public',
+            'disk' => 'local',
             'directory' => 'media',
             'image_variants' => [
                 'thumbnail',
@@ -15,6 +15,13 @@ return [
         'avatar' => [
             'disk' => 'public',
             'directory' => 'avatar',
+            'image_variants' => [
+                'thumbnail',
+            ],
+        ],
+        'test1q' => [
+            'disk' => 'public_assets',
+            'directory' => 'resources',
             'image_variants' => [
                 'thumbnail',
             ],
