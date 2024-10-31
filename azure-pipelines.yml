@@ -1,8 +1,3 @@
-# PHP
-# Test and package your PHP project.
-# Add steps that run tests, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/php
-
 trigger:
 - main
 
@@ -11,36 +6,27 @@ pool:
 
 variables:
   phpVersion: 8.1
-  composerCache: $(Pipeline.Workspace)/.composer
+  GITHUB_REPO: 'https://github.com/rnbruno/pestex_.git'  # Substitua pelo seu repositório
+  GITHUB_USERNAME: 'rnbruno'  # Seu nome de usuário no GitHub
 
 steps:
 - script: |
     sudo update-alternatives --set php /usr/bin/php$(phpVersion)
-    sudo update-alternatives --set phar /usr/bin/phar$(phpVersion)
-    sudo update-alternatives --set phpdbg /usr/bin/phpdbg$(phpVersion)
-    sudo update-alternatives --set php-cgi /usr/bin/php-cgi$(phpVersion)
-    sudo update-alternatives --set phar.phar /usr/bin/phar.phar$(phpVersion)
-    php -v
+    php -version
   displayName: 'Use PHP version $(phpVersion)'
 
-- script: composer install --no-interaction --prefer-dist --prefer-stable
+- script: composer install --no-interaction --prefer-dist
   displayName: 'composer install'
-  env:
-    COMPOSER_CACHE_DIR: $(composerCache)
 
-- script: vendor/bin/pest
-  displayName: 'Run Tests with Pest'
-
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: 'path/to/your/artifacts'  # Ajuste para o caminho dos seus artefatos
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
-
-# Se você tiver um ambiente de produção, adicione um passo de deploy aqui, por exemplo:
-# - task: AzureWebApp@1
-#   inputs:
-#     azureSubscription: 'YourAzureSubscription'
-#     appName: 'YourAppServiceName'
-#     package: '$(System.DefaultWorkingDirectory)/path/to/your/artifacts'  # Ajuste conforme necessário
-#     deploymentMethod: 'zipDeploy'
+- script: |
+    # Configure git
+    git config --global user.email "brunosmatias@gmail.com"
+    git config --global user.name "rnbruno"
+    
+    # Add, commit, and push changes
+    git add .
+    git commit -m "Automated commit from Azure DevOps pipeline"
+    
+    # Push changes to the GitHub repository
+    git push https://$(GITHUB_USERNAME):$(GITHUB_TOKEN)@$(GITHUB_REPO) HEAD:main
+  displayName: 'Commit and Push Changes'
